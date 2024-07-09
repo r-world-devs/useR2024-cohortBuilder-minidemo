@@ -1,3 +1,4 @@
+library(magrittr)
 # Load lobrarian dataset
 load("librarian.rda")
 
@@ -6,4 +7,3 @@ load("librarian.rda")
 # Check librarian dataset
 str(librarian)
 print(librarian)
-View(librarian)

@@ -23,9 +23,9 @@ coh <- librarian_source %>%
         variable = "registered", range = c(as.Date("2010-01-01"), Inf),
         active = TRUE
       )
-    ),
-    run_flow = TRUE
-  )
+    )
+  ) |>
+  cohortBuilder::run
 
 cohortBuilder::get_data(coh)
 

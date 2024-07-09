@@ -810,8 +810,8 @@
       "RemoteHost": "api.github.com",
       "RemoteRepo": "shinyCohortBuilder",
       "RemoteUsername": "r-world-devs",
-      "RemoteRef": "krystian.styling-cleanup",
-      "RemoteSha": "22bdeaa8461fcb84e244da0c18ea2f7a8efbbb03",
+      "RemoteRef": "galachad.patch-search",
+      "RemoteSha": "ab5f1ccb744678e030cb2a566c199eaecb457665",
       "Requirements": [
         "R",
         "bslib",
@@ -834,7 +834,7 @@
         "tibble",
         "tryCatchLog"
       ],
-      "Hash": "fe42b944d5213081b0acfb2724c80489"
+      "Hash": "030b3ffb830dd826ceccdc0af32ae3b4"
     },
     "shinyGizmo": {
       "Package": "shinyGizmo",

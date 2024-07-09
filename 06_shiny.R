@@ -13,7 +13,7 @@ options("cb_render_all" = TRUE)
 options("cb_active_filter" = FALSE)
 
 ui <- fluidPage(
-
+  shiny::tags$style("code.hl.background {color: #000 !important};"),
   # Application title
   titlePanel("shinyCohortBuilder Demo"),
 
@@ -25,6 +25,7 @@ ui <- fluidPage(
 
     # Show a librarian
     mainPanel(
+      actionButton("update_filter", "Update filter"),
       verbatimTextOutput("cohort_data")
     )
   )
@@ -63,6 +64,20 @@ server <- function(input, output) {
 
   output$cohort_data <- renderPrint({
     returned_data()
+  })
+
+  observeEvent(input$update_filter, {
+    id <- coh$get_filter("1") %>% purrr::keep(~ .x$name == "copies") %>% names()
+    cohortBuilder::update_filter(
+      coh, step_id = 1, filter_id = id,
+      label = "Copies",
+      range = c(1, 2), active = TRUE
+    )
+
+    cohortBuilder::run(coh)
+    ns <- coh$attributes$session$ns
+    shiny::removeUI(glue::glue("#{ns(1)}"), session = coh$attributes$session, immediate = TRUE)
+    shinyCohortBuilder:::render_steps(coh, coh$attributes$session, init = FALSE)
   })
 
 }

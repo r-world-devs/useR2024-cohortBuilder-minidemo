@@ -1,5 +1,6 @@
 # shinyCohortBuilder autofilter
 library(magrittr)
+options("cb_active_filter" = FALSE)
 
 # Load lobrarian dataset
 # load("librarian.rda")
@@ -16,7 +17,7 @@ librarian_source <- cohortBuilder::set_source(
     cohortBuilder::bind_key(
       update = cohortBuilder::data_key('issues', 'isbn'),
       cohortBuilder::data_key('books', 'isbn'),
-      activate = TRUE,
+      activate = TRUE
     )
   )
 ) %>%
